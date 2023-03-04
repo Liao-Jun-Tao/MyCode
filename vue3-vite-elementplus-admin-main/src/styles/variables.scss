@@ -1,0 +1,56 @@
+$white: #fff;
+$baseBg: #f0f2f5;
+// $menuText: #bfcbd9;
+// $menuActiveText: #409eff;
+// $subMenuActiveText: #f4f4f5;
+// $menuBg: #304156;
+// $menuHover: #263445;
+// $subMenuBg: #1f2d3d;
+// $subMenuHover: #001528;
+// $sideBarWidth: 210px;
+$breadcrumbColor: #97a8be;
+
+.app-icon-hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  &:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.025);
+  }
+  i {
+    font-size: 20px;
+    color: #666;
+  }
+}
+
+
+@mixin transition($timeSlot...) {
+  -webkit-transition: $timeSlot;
+  -moz-transition: $timeSlot;
+  -o-transition: $timeSlot;
+  -ms-transition: $timeSlot;
+  transition: $timeSlot;
+}
+@mixin transform($translate) {
+  -webkit-transform: $translate;
+  -moz-transform: $translate;
+  -o-transform: $translate;
+  -ms-transform: $translate;
+  transform: $translate;
+}
+
+@mixin transformOrigin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+}
+@mixin backgroundImage($url) {
+  background-image: $url;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

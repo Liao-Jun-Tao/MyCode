@@ -1,0 +1,54 @@
+@import './sidebar.scss';
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+}
+#app {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+
+  .layout {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .sidebar-container {
+      position: fixed;
+      height: 100%;
+      top: 0px;
+      z-index: 1001;
+      overflow: hidden;
+      transition: width 0.28s;
+      -moz-transition: width 0.28s;
+      -webkit-transition: width 0.28s;
+      -o-transition: width 0.28s;
+    }
+    .main-container {
+      transition: margin-left 0.28s;
+      -moz-transition: margin-left 0.28s;
+      -webkit-transition: margin-left 0.28s;
+      -o-transition: margin-left 0.28s;
+    }
+  }
+  .openSidebar {
+    .sidebar-container {
+      width: 210px !important;
+    }
+    .main-container {
+      margin-left: 210px;
+    }
+  }
+  .hideSidebar {
+    .sidebar-container {
+      width: 64px !important;
+    }
+    .main-container {
+      margin-left: 64px;
+    }
+  }
+}

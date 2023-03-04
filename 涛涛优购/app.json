@@ -1,0 +1,54 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/category/index",
+		"pages/goods_list/index",
+		"pages/goods_detail/index",
+		"pages/collect/index",
+		"pages/order/index",
+		"pages/search/index",
+		"pages/user/index",
+		"pages/feedback/index",
+		"pages/login/index",
+		"pages/auth/index",
+		"pages/pay/index",
+		"pages/cart/index"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#64d4a5",
+		"navigationBarTitleText": "原神优品",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#ff2d4a",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "./icon/home.png",
+				"selectedIconPath": "./icon/home_active.png"
+			},
+			{
+				"pagePath": "pages/category/index",
+				"text": "分类",
+				"iconPath": "./icon/kind.png",
+				"selectedIconPath": "./icon/kind_active.png"
+			},
+			{
+				"pagePath": "pages/cart/index",
+				"text": "购物车",
+				"iconPath": "./icon/gouwuche.png",
+				"selectedIconPath": "./icon/gouwuche_active.png"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"text": "我的",
+				"iconPath": "./icon/user.png",
+				"selectedIconPath": "./icon/user_active.png"
+			}
+		]
+	},
+	"sitemapLocation": "sitemap.json"
+}

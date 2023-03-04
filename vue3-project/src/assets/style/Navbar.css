@@ -1,0 +1,36 @@
+.navbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0.13333rem 0;
+  z-index: 1000;
+  background-color: #fff;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.navbar .nav-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.navbar .nav-list .nav-list-item {
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+  color: #666;
+}
+.navbar .nav-list .nav-list-item i {
+  text-align: center;
+  font-size: 0.58667rem;
+}
+.navbar .nav-list .nav-list-item div {
+  font-size: 0.32rem;
+}
+.navbar .nav-list .nav-list-item:focus {
+  color: #c2a834;
+}
+.navbar .nav-list .router-link-active:focus {
+  color: #c2a834;
+}
