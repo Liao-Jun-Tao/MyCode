@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"; //某个模块的状态函数化
-import { Ref, ref, reactive } from "vue";
+import { Ref, ref, reactive, computed } from "vue";
 import { nanoid } from "nanoid";
 //持久化 localStorage
 //告别类似编程  函数式
@@ -33,9 +33,36 @@ export const useTodoStore = defineStore("todos", () => {
       todos.value = JSON.parse(Istodos);
     }
   };
+
+  const completedTodos = computed(() =>
+    todos.value.filter((todo) => todo.isComplete === true)
+  );
+
+  const incompleteTodos = computed(() =>
+    todos.value.filter((todo) => todo.isComplete !== true)
+  );
+
+  const toggleTodo = (id: string) => {
+    //todos  更新
+    todos.value.forEach(todo => {
+      if (todo.id === id) todo.isComplete = !todo.isComplete;
+    }); //引用式
+
+    updateLocalStorage()
+    //
+
+    
+  };
+  const clearCompletedTodos = () => {
+    todos.value = todos.value.
+}
   return {
     todos,
     addTodo,
     initFromLocalStorage,
+    completedTodos,
+    incompleteTodos,
+    toggleTodo,
+    clearCompletedTodos
   };
 });

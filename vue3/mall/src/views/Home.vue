@@ -137,8 +137,8 @@ const state = reactive({
 
 const gotoDetail = (id) => {
   // /detail/:id 
-  // console.log(id, 'gotoDetail');
-  // console.log(router, '///');
+  console.log(id, 'gotoDetail');
+//   console.log(router, '///');
   router.push({
       path: `/detail/${id}`
   })

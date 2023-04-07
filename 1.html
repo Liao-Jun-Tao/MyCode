@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>For You</title>
+		<style>
+			body {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+  transform-origin: center center;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+
+		</style>
+	</head>
+	<body>
+		<div class="stars"></div>
+<script>
+
+const starsContainer = document.querySelector('.stars');
+
+for (let i = 0; i < 200; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.top = Math.random() * 100 + '%';
+  star.style.left = Math.random() * 100 + '%';
+  starsContainer.appendChild(star);
+}
+
+</script>
+	</body>
+</html>

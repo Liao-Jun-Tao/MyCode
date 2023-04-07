@@ -65,8 +65,8 @@ import { login, register } from '@/service/user.js'
 import md5 from 'js-md5'
 const state = reactive({
   type: 'login',
-  username1: '',
-  password1:''
+  username: '',
+  password:''
 })
 
 const router = useRouter()
@@ -84,7 +84,7 @@ const toggle = (type) => {
 }
 
 const onSubmit = async (values) => {
-  // console.log(values)
+  console.log(values)
   if (state.type === 'login') {
     const data = await login({
       "loginName": values.username,

@@ -1,3 +1,4 @@
+
 import { createRouter, createWebHashHistory } from "vue-router";
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -10,39 +11,33 @@ const router = createRouter({
 		{
 			path: "/home",
 			name: "home",
-			component: () => import("@/views/Home.vue"),
+			component: () => import("@/views/Home/Index.vue"),
 		},
 		{
 			path: "/login",
 			name: "login",
-			component: () => import("@/views/Login.vue"),
+			component: () => import("@/views/Login/Index.vue"),
 		},
         {
 			path: "/category",
 			name: "category",
-			component: () => import("@/views/Category.vue"),
+			component: () => import("@/views/Category/Index.vue"),
 		},
         {
 			path: "/user",
 			name: "user",
-			component: () => import("@/views/User.vue"),
+			component: () => import("@/views/User/Index.vue"),
 		},
         {
 			path: "/cart",
 			name: "cart",
-			component: () => import("@/views/Cart.vue"),
+			component: () => import("@/views/Cart/Index.vue"),
 		},
 		{
 			path: "/search",
 			name: "search",
-			component: () => import("@/views/Search.vue"),
+			component: () => import("@/views/Search/Index.vue"),
 		},
-		{
-			path: "/detail",
-			name: "detail",
-			component: () => import("@/views/Detail.vue"),
-		},
-		
         
 	],
 });

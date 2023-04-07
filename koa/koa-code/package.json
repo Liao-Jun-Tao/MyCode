@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "koa": "^2.14.1"
+  },
+  "name": "koa-code",
+  "description": "面向对象思想  Koa class\r app.\r - listen\r       http.createServer\r - ctx\r       req + res\r - use\r       基于promise async await\r       洋葱模型\r       嵌套复杂的任务, 清晰, 模块化, 复用 compose next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

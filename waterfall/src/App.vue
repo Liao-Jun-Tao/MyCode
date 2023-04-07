@@ -29,7 +29,8 @@ onMounted(async () => {
         }
         heights[minHeightIndex] += data[i].height
     }
-    // console.log(leftTemGoods,rightTemGoods);
+    console.log(leftTemGoods,rightTemGoods);
+    console.log(object);
     state.leftGoods = leftTemGoods;
     state.rightGoods = rightTemGoods
 })
