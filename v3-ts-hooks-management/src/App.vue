@@ -1,13 +1,13 @@
 <template>
-   <el-config-provider :locale="zhCn">
-       <router-view />
-       <!-- <el-calendar> </el-calendar> -->
-   </el-config-provider>
+  <el-config-provider :locale="zhCn">
+    <router-view />
+    <!-- <el-calendar> </el-calendar> -->
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
 // 全球视野框架
-// inject provide 
+// inject provide
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 // import en from 'element-plus/es/locale/lang/en';
