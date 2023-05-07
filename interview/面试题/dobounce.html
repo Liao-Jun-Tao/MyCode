@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 创建一个输入框 -->
+    <input type="text" id="input">
+    <script>
+        // 防抖函数
+        function debounce (func, delay) {
+            let timer = null; // 定义一个计时器
+            return function (...args) {
+                clearTimeout(timer); // 清除计时器
+                timer = setTimeout(() => {
+                    func.apply(this, args); // 执行函数
+                }, delay); // 延迟执行时间
+            };
+        }
+
+        const input = document.getElementById('input');
+        input.addEventListener('input', debounce(function() {
+            console.log(input.value);
+        }, 1000));
+    </script>
+</body>
+</html>
+

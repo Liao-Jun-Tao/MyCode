@@ -1,0 +1,31 @@
+// import http from 'http'
+const http = require('http')
+
+const server = http.createServer()
+    // on 想到了什么? eventEmitter 实例
+server.on('request', async (req, res) => {
+    // cors 跨域方案, cors 库
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Headers", "*")
+
+    // 与HEAD 类似 客户端查看服务器端的性能等指标
+    // POST ajax跨域  OPTIONS
+    // OPTIONS 是一种 HTTP 方法，用于查询服务器支持的请求方法和头信息，以及检查服务器是否允许跨域请求。
+    
+    if (req.method === "OPTIONS") {
+        res.statusCode = 200
+        res.end()
+        return
+    }
+
+    res.end('Hello word')
+
+    //耗时?
+    // - post data 
+    // - 文件上传 写入
+
+})
+server.listen(8888, () => console.log('listen port 8888'))
+
+
+

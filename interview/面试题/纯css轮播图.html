@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>css3 实现幻灯片效果</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .banner {
+      width: 600px;
+      height: 400px;
+      margin: 100px auto;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+      border-radius: 5px;
+    }
+
+    .banner ul {
+      width: 2000px;
+      height: 100%;
+      animation: loops 10s infinite ease;
+    }
+
+    .item {
+      width: 600px;
+      height: 100%;
+      float: left;
+    }
+
+    .item img {
+      width: 600px;
+      height: 100%;
+    }
+
+    @keyframes loops {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-600px);
+      }
+
+      100% {
+        transform: translateX(-1200px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    <ul>
+      <li class="item">
+
+        <img src="https://img1.baidu.com/it/u=1304255642,2961408783&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img0.baidu.com/it/u=3822016102,3026244821&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+        <img src="https://img1.baidu.com/it/u=847956157,2750448390&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""
+          srcset="">
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

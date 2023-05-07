@@ -19,5 +19,8 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()]
     })
-  ]
+  ],
+  optimizeDeps: {
+   include: ['schart.js']
+}
 });

@@ -23,3 +23,5 @@ export const usePermissStore = defineStore('permiss',{
       }
    }
 })
+
+export default usePermissStore

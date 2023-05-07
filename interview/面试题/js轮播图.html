@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    .cardBox {
+      width: 600px;
+      height: 300px;
+      box-shadow: 0 0 10px gray;
+      border-radius: 5px;
+      margin: 100px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .imgBox {
+      width: 3600px;
+      height: 300px;
+      transition: all 1s;
+      transform: translateX(0px);
+    }
+
+    .item {
+      width: 600px;
+      height: 300px;
+      float: left;
+
+    }
+
+    .item img {
+      width: 100%;
+    }
+
+    .btn {
+      width: 20px;
+      height: 20px;
+      top: calc(50% - 20px);
+      border-right: solid white;
+      border-top: solid white;
+      position: absolute;
+      z-index: 99;
+      opacity: .6;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 1;
+    }
+
+    .left {
+      left: 15px;
+      transform: rotate(-135deg);
+    }
+
+    .right {
+      right: 15px;
+      transform: rotate(45deg);
+    }
+
+    .pointBox {
+      display: flex;
+      width: 50%;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+    }
+
+    .pointBox li {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: gray;
+      margin: 0 10px;
+      opacity: .7;
+      cursor: pointer;
+    }
+
+    .pointBox li:hover {
+      opacity: 1;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cardBox">
+    <div class="btn left"></div>
+    <div class="btn right"></div>
+    <ul class="imgBox">
+      <li class="item">
+        <img src="https://img2.baidu.com/it/u=2988589017,2923917558&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+      </li>
+      <li class="item">
+
+        <img src="https://img2.baidu.com/it/u=3867960631,2923014190&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img0.baidu.com/it/u=891036130,2043934807&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img1.baidu.com/it/u=1304255642,2961408783&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img0.baidu.com/it/u=3822016102,3026244821&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+        <img src="https://img1.baidu.com/it/u=847956157,2750448390&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""
+          srcset="">
+      </li>
+    </ul>
+    <ul class="pointBox">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    let card = document.querySelector('.cardBox ul')
+    let cardBox = document.querySelector('.cardBox')
+    let items = document.querySelectorAll(".item")
+    let leftBtn = document.querySelector(".left")
+    let rightBtn = document.querySelector(".right")
+    let points = document.querySelectorAll(".pointBox li")
+    let index = 0
+    items.forEach((item, index) => {
+      let translateX = index * 600
+      item.style.left = `${translateX}px`
+    })
+    let timer = null
+    points[index].style.background = 'white'
+    points[index].style.width = '16px'
+    points[index].style.borderRadius = '5px'
+    const initInterval = () => {
+      timer = setInterval(() => {
+        index++
+        let pointIndex = index;
+        points[pointIndex].style.background = 'white'
+        points[pointIndex].style.width = '16px'
+        points[pointIndex].style.borderRadius = '5px'
+        if (pointIndex == 0) {
+          points[5].style.background = 'gray'
+          points[5].style.width = '8px'
+        } else {
+          points[pointIndex - 1].style.background = 'gray'
+          points[pointIndex - 1].style.width = '8px'
+        }
+
+
+        let translateX = -index * 600
+        card.style.transform = `translateX(${translateX}px)`
+        if (index >= 5) {
+          index = -1
+        }
+      }, 3000);
+    }
+
+    initInterval()
+    cardBox.addEventListener("mouseover", () => {
+      clearInterval(timer)
+    })
+
+    cardBox.addEventListener("mouseout", () => {
+      initInterval()
+    })
+    // btn.addEventListener("mouseout", () => {
+    //   initInterval()
+    // })
+    leftBtn.onclick = function () {
+      if (timer) {
+        clearInterval(timer)
+      }
+      if (index <= 0) {
+        index = 6
+      }
+      index--
+      let translateX = -index * 600
+      card.style.transform = `translateX(${translateX}px)`
+    }
+    rightBtn.onclick = function () {
+      if (timer) {
+        clearInterval(timer)
+      }
+      index++
+      let translateX = -index * 600
+      card.style.transform = `translateX(${translateX}px)`
+      if (index >= 5) {
+        index = -1
+      }
+    }
+    points.forEach((item, i) => {
+      item.onclick = () => {
+        points.forEach(element => {
+          element.style.background = 'gray'
+          element.style.width = '8px'
+          element.style.borderRadius = '50%'
+        });
+        item.style.background = 'white'
+        item.style.width = '16px'
+        item.style.borderRadius = '5px'
+        index = i;
+        let translateX = -index * 600
+        card.style.transform = `translateX(${translateX}px)`
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 // 该文件定义了路由相关的配置信息
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../views/home.vue';
-import { usePermissStore } from '../store/Permiss';
+import { usePermissStore } from '../store/permiss';
 // 定义路由信息
 const routes: RouteRecordRaw[] = [
    {

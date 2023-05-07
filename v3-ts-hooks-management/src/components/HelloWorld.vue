@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+// Define props
 defineProps<{ msg: string }>()
 
+// Define reactive count variable
 const count = ref(0)
 </script>
 
@@ -36,3 +38,4 @@ const count = ref(0)
   color: #888;
 }
 </style>
+

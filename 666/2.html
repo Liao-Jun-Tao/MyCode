@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+
+const logLine = 'ab_c_"abc_adadfasd"_def_"dddd"';
+const finalArray = [];
+
+let startIndex = 0;
+let endIndex = logLine.indexOf('_', startIndex);
+finalArray.push(logLine.slice(startIndex, endIndex));
+startIndex = endIndex + 1;
+endIndex = logLine.indexOf('_', startIndex);
+finalArray.push(logLine.slice(startIndex, endIndex));
+startIndex = endIndex + 2; 
+endIndex = logLine.indexOf('"_', startIndex); 
+finalArray.push(logLine.slice(startIndex, endIndex).replace(/_/g, ' '));
+startIndex = endIndex + 3; 
+endIndex = logLine.indexOf('_', startIndex);
+finalArray.push(logLine.slice(startIndex, endIndex));
+startIndex = endIndex + 2; 
+finalArray.push(logLine.slice(startIndex, logLine.length - 1)); 
+console.log(finalArray);
+
+   </script>
+</body>
+</html>

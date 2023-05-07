@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./AntiflutterThrottling.js" />
+  </head>
+
+  <body>
+
+    <input type="text" id="debounce" />
+    <script>
+     //模拟一段ajax请求
+function ajax(content) {
+  console.log('ajax request ' + content)
+}
+
+// debounce函数接受两个参数，一个是需要防抖的函数，一个是延迟时间
+function debounce(fun, delay) {
+    // 返回一个函数，这个函数会在delay时间后执行fun函数
+    return function (args) {
+        // 保存函数调用时的上下文和参数，传递给fun
+        let that = this
+        let _args = args
+        // 每次触发事件时都取消之前的延时调用方法
+        clearTimeout(fun.id)
+        // setTimeout实现延迟调用
+        fun.id = setTimeout(function () {
+            fun.call(that, _args)
+        }, delay)
+    }
+}
+
+let inputb = document.getElementById('debounce')
+
+let debounceAjax = debounce(ajax, 500)
+
+inputb.addEventListener('keyup', function (e) {
+        debounceAjax(e.target.value)
+    })
+    </script>
+  </body>
+</html>

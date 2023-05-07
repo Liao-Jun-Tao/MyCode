@@ -15,7 +15,7 @@
   - 每个函数交给app.user 调用都是中间件 middleware
   - 每个middleware中都能拿到ctx next等参数
   - 按照顺序执行 从上到下
-  - 设计当遇到ctx。response.body提前退出
+  - 设计当遇到ctx.response.body提前退出
     - 不同的用户 不同的任务 不同的中间件需求 
     - 数组 数据库连接中间件 要在路由中间件前后
     - 如果到了最后一个中间件 仍然没有结束沿着洋葱模型回溯执行

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>双飞翼布局示例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header, footer, .main {
+      overflow: hidden;
+    }
+    header {
+      background-color: #ddd;
+      text-align: center;
+      padding: 20px;
+    }
+    .main {
+      margin: 0 150px;
+      background-color: #eee;
+    }
+    .main > section {
+      float: left;
+      width: 70%;
+      padding: 20px;
+    }
+    .main > aside {
+      float: left;
+      width: 15%;
+      padding: 20px;
+      margin-left: -100%;
+    }
+    .main > aside:first-of-type {
+      margin-left: -150px;
+    }
+    .main > aside:last-of-type {
+      margin-left: 70%;
+    }
+    footer {
+      background-color: #ddd;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>这是一个标题</h1>
+      <p>这是一个描述</p>
+    </header>
+    <div class="main">
+      <section>
+        <h2>主要内容区域</h2>
+        <p>这里是主要的内容，可以放置文章、图片、视频等等。</p>
+      </section>
+      <aside>
+        <h3>左侧栏</h3>
+        <ul>
+          <li><a href="#">导航链接1</a></li>
+          <li><a href="#">导航链接2</a></li>
+          <li><a href="#">导航链接3</a></li>
+        </ul>
+      </aside>
+      <aside>
+        <h3>右侧栏</h3>
+        <p>这里可以放置一些广告、推荐内容、标签云等等。</p>
+      </aside>
+    </div>
+    <footer>
+      <p>这是页脚信息</p>
+    </footer>
+  </div>
+</body>
+</html>

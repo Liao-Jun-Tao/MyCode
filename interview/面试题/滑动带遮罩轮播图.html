@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    .cardBox {
+      width: 600px;
+      height: 300px;
+      margin: 100px auto;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 5px black;
+      border-radius: 10px;
+    }
+
+
+    .item {
+      width: 600px;
+      height: 300px;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .ani {
+      animation: cover 2s linear;
+      z-index: 3 !important;
+    }
+
+    .ani::before {
+      content: "";
+      display: none;
+    }
+
+    .item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 600px;
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+    @keyframes cover {
+      from {
+        right: 600px;
+      }
+
+      to {
+        right: 0px;
+      }
+    }
+
+    .item img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cardBox">
+    <ul class="imgBox">
+      <li class="item"></li>
+      <li class="item ani">
+        <img src="https://img2.baidu.com/it/u=2988589017,2923917558&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt="">
+      </li>
+      <li class="item">
+
+        <img src="https://img2.baidu.com/it/u=3867960631,2923014190&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img0.baidu.com/it/u=891036130,2043934807&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img1.baidu.com/it/u=1304255642,2961408783&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+
+        <img src="https://img0.baidu.com/it/u=3822016102,3026244821&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281" alt=""
+          srcset="">
+      </li>
+      <li class="item">
+        <img src="https://img1.baidu.com/it/u=847956157,2750448390&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""
+          srcset="">
+      </li>
+    </ul>
+  </div>
+  <script>
+    let items = document.querySelectorAll(".item")
+    let imgBox = document.querySelector(".imgBox")
+    let index = 1
+    let timer = null
+    const initInterval = () => {
+      timer = setInterval(() => {
+        items.forEach((item, index) => {
+          let translateX = index * 600
+          item.style.zIndex = `-1`
+          item.classList.remove('ani')
+        })
+        items[index].classList.add('ani')
+        let pre = index - 1
+        items[pre].style.zIndex = '2'
+        index++
+        if (index >= 7) {
+          index = 1
+        }
+      }, 4000);
+    }
+
+    initInterval()
+    imgBox.addEventListener("mouseover", () => {
+      clearInterval(timer)
+    })
+
+    imgBox.addEventListener("mouseout", () => {
+      initInterval()
+    })
+  </script>
+</body>
+
+</html>
